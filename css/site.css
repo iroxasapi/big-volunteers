@@ -1091,3 +1091,61 @@ footer {
         grid-template-columns: 1fr;
     }
 }
+
+/* ===== ANIMATION ===== */
+
+/* Hero entrance, staggered */
+@keyframes fadeUp {
+    from { opacity: 0; transform: translateY(18px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.hero-badge { animation: fadeUp 0.7s ease both; }
+.hero h1 { animation: fadeUp 0.7s ease 0.1s both; }
+.hero p.lead { animation: fadeUp 0.7s ease 0.2s both; }
+.hero-actions { animation: fadeUp 0.7s ease 0.3s both; }
+.hero-stats { animation: fadeUp 0.7s ease 0.4s both; }
+
+/* Scroll reveal */
+.reveal {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.reveal.in-view {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Card hover lift */
+.badge-card,
+.volunteer-card,
+.speaker-card,
+.about-card {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.badge-card:hover,
+.volunteer-card:hover,
+.speaker-card:hover,
+.about-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 14px 28px rgba(36,9,47,0.10);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .hero-badge, .hero h1, .hero p.lead, .hero-actions, .hero-stats {
+        animation: none;
+    }
+    .reveal {
+        opacity: 1;
+        transform: none;
+    }
+    .badge-card:hover,
+    .volunteer-card:hover,
+    .speaker-card:hover,
+    .about-card:hover {
+        transform: none;
+    }
+}

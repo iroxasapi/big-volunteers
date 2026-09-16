@@ -72,7 +72,7 @@
         <!-- ABOUT -->
         <section class="block about" id="about">
             <div class="wrap about-grid">
-                <div>
+                <div class="reveal">
                     <div class="eyebrow tag">
                         <span class="rule"></span>
                         <span>About the convention</span>
@@ -84,7 +84,7 @@
                         <p>This page is our shared bulletin board: what each team is up to this week, who's behind it, and how to join them.</p>
                     </div>
                 </div>
-                <div class="about-card">
+                <div class="about-card reveal" style="transition-delay:0.15s;">
                     <div class="eyebrow tag" style="color:rgba(244,239,226,0.55);">
                         <span class="rule"></span>
                         <span>This year at a glance</span>
@@ -104,7 +104,7 @@
         <!-- NEWS -->
         <section class="block news hidden" id="news">
             <div class="wrap">
-                <div class="block-head">
+                <div class="block-head reveal">
                     <div>
                         <div class="eyebrow tag">
                             <span class="rule"></span>
@@ -159,7 +159,7 @@
         <!-- VOLUNTEER TEAMS / BADGES -->
         <section class="block team" id="team">
             <div class="wrap">
-                <div class="block-head">
+                <div class="block-head reveal">
                     <div>
                         <div class="eyebrow tag">
                             <span class="rule"></span>
@@ -172,7 +172,7 @@
 
                 <div class="badge-grid">
 
-                    <div class="badge-card">
+                    <div class="badge-card reveal" style="transition-delay:0s;">
                         <div class="badge-punch"></div>
                         <div class="badge-strip" style="background:#FF6B42;"></div>
                         <div class="badge-top">
@@ -185,7 +185,7 @@
                         <p class="bio">Tells the story of the forum and its mission in creative ways: social media, outreach to universities and academic offices, and content production.</p>
                     </div>
 
-                    <div class="badge-card">
+                    <div class="badge-card reveal" style="transition-delay:0.1s;">
                         <div class="badge-punch"></div>
                         <div class="badge-strip" style="background:#4B5A8A;"></div>
                         <div class="badge-top">
@@ -198,7 +198,7 @@
                         <p class="bio">Designs the activities built specifically for students: "Meet the Speaker" sessions during breaks, thematic workshops, and networking. We're looking for people with ideas and the drive to make them happen.</p>
                     </div>
 
-                    <div class="badge-card">
+                    <div class="badge-card reveal" style="transition-delay:0.2s;">
                         <div class="badge-punch"></div>
                         <div class="badge-strip" style="background:#173F3C;"></div>
                         <div class="badge-top">
@@ -218,7 +218,7 @@
         <!-- SPEAKER CONNECT HUB PROMO -->
         <section class="block roster sage" id="speakers-promo">
             <div class="wrap about-grid">
-                <div>
+                <div class="reveal">
                     <div class="eyebrow tag">
                         <span class="rule"></span>
                         <span>For students</span>
@@ -232,7 +232,7 @@
                         <a href="network.html" class="btn btn-primary">Browse Speakers</a>
                     </div>
                 </div>
-                <div class="about-card">
+                <div class="about-card reveal" style="transition-delay:0.15s;">
                     <div class="eyebrow tag" style="color:rgba(244,239,226,0.55);">
                         <span class="rule"></span>
                         <span>What's inside</span>
@@ -250,7 +250,7 @@
         <!-- JOIN -->
         <section class="block join" id="join">
             <div class="wrap join-grid">
-                <div class="join-copy">
+                <div class="join-copy reveal">
                     <div class="eyebrow tag" style="color:var(--coral);">
                         <span class="rule" style="background:var(--coral); opacity:1;"></span>
                         <span>Open shifts</span>
@@ -261,7 +261,7 @@
 
                 <!-- GitHub Pages can't run a server-side form handler, so this links out
                      to the same Google Form used for "Join Us" above. -->
-                <div class="join-form-card" style="background:rgba(244,239,226,0.06); border:1px solid var(--line-light); border-radius:18px; padding:32px; display:flex; flex-direction:column; gap:18px;">
+                <div class="join-form-card reveal" style="transition-delay:0.15s; background:rgba(244,239,226,0.06); border:1px solid var(--line-light); border-radius:18px; padding:32px; display:flex; flex-direction:column; gap:18px;">
                     <p style="color:rgba(244,239,226,0.85); font-size:0.98rem;">Sign-ups are handled through our volunteer form &mdash; it takes about two minutes.</p>
                     <a href="https://forms.gle/2FUJDsrABDQsK2FG9" target="_blank" class="btn btn-primary" style="justify-content:center;">Request to Join</a>
                 </div>
@@ -311,6 +311,23 @@
                 document.getElementById('navToggle').setAttribute('aria-expanded', 'false');
             });
         });
+
+        // Scroll-reveal: fade + slide up each .reveal element as it enters the viewport
+        const revealEls = document.querySelectorAll('.reveal');
+        if ('IntersectionObserver' in window) {
+            const revealObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('in-view');
+                        revealObserver.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.15 });
+            revealEls.forEach(el => revealObserver.observe(el));
+        } else {
+            // No IntersectionObserver support: just show everything
+            revealEls.forEach(el => el.classList.add('in-view'));
+        }
     </script>
 </body>
 </html>
