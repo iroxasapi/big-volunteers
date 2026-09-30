@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>News - big</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/site.css" />
+</head>
+<body>
+    <header>
+        <div class="wrap">
+            <nav>
+                <a href="index.html" class="logo">
+                    <span class="mark">b<span>i</span>g</span>
+                    <span class="sub">Volunteers</span>
+                </a>
+                <div class="nav-links" id="navLinks">
+                    <a href="news.html">Latest News</a>
+                    <a href="volunteers.html">Volunteer Teams</a>
+                    <a href="network.html">Network</a>
+                    <a href="https://forum.bioinnovation.gr/" target="_blank">About big</a>
+                    <a href="https://forms.gle/2FUJDsrABDQsK2FG9" target="_blank">Join Us</a>
+                </div>
+                <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="navLinks">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <main id="top" role="main">
+
+        <section class="page-header">
+            <div class="wrap">
+                <div class="eyebrow tag">
+                    <span class="rule"></span>
+                    <span>From the teams</span>
+                </div>
+                <h1>News &amp; Updates</h1>
+                <p class="lead">Short updates posted straight from team leads - tap any headline to read the full post.</p>
+            </div>
+        </section>
+
+        <section class="block news-page" id="news-list">
+            <div class="wrap">
+                <div class="post-list reveal">
+
+                    <div class="post-item">
+                        <button class="post-toggle" aria-expanded="false" aria-controls="post-1-body">
+                            <div class="post-toggle-left">
+                                <span class="post-date">SEP&nbsp;22</span>
+                                <span class="post-group">Social Media</span>
+                            </div>
+                            <div class="post-toggle-main">
+                                <h3 class="post-title">University outreach wraps up: 40+ academic offices reached</h3>
+                                <p class="post-excerpt">The first outreach push is complete, with confirmations coming in from departments across Athens, Thessaloniki, and Patras.</p>
+                            </div>
+                            <span class="post-chevron" aria-hidden="true">&rsaquo;</span>
+                        </button>
+                        <div class="post-body" id="post-1-body">
+                            <div class="post-body-inner">
+                                <img class="post-photo" src="images/post-1.svg" alt="" />
+                                <p>Over the past six weeks, the Social Media Team contacted more than 40 academic offices and student unions across Greece to spread the word about big Volunteers and the BioInnovation Greece Forum 2026. Response has been strong, with several universities already offering to share the volunteer sign-up form directly with their biology, bioinformatics, and biotech student mailing lists.</p><p>Alongside outreach, the team finalized the content calendar running from now through the forum's opening on September 30th &mdash; expect a mix of speaker spotlights, behind-the-scenes prep content, and countdown posts across Instagram and TikTok.</p><p>If your department hasn't heard from us yet, reach out through the Join Us form and we'll make sure you're looped in.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="wrap foot-row">
+            <span>&copy; 2026 big Volunteers</span>
+            <div class="foot-links">
+                <a href="index.html#about">About</a>
+                <a href="news.html">News</a>
+                <a href="index.html#team">Teams</a>
+                <a href="https://forms.gle/2FUJDsrABDQsK2FG9" target="_blank">Join</a>
+            </div>
+            <div class="foot-social">
+                <a href="https://www.instagram.com/bioinnovation_greece?stkn=Z2pxbzRjcW4wemtu&utm_source=qr" target="_blank" rel="noopener" aria-label="Instagram">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                        <rect x="3" y="3" width="18" height="18" rx="5" />
+                        <circle cx="12" cy="12" r="4" />
+                        <circle cx="17.5" cy="6.5" r="0.6" fill="currentColor" stroke="none" />
+                    </svg>
+                </a>
+                <a href="https://www.tiktok.com/@bioinnovation.greece?_r=1&_t=ZN-99adVFt6lqY" target="_blank" rel="noopener" aria-label="TikTok">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M16.5 2h-3.2v13.2c0 1.4-1.1 2.5-2.5 2.5S8.3 16.6 8.3 15.2c0-1.4 1.1-2.5 2.5-2.5.3 0 .6.05.9.15V9.6c-.3-.04-.6-.06-.9-.06-3.1 0-5.6 2.5-5.6 5.6S7.7 20.7 10.8 20.7s5.6-2.5 5.6-5.6V8.4c1.1.8 2.5 1.3 4 1.3V6.5c-1.8 0-3.3-1.5-3.9-2.5-.3-.6-.4-1.3-.4-2z" />
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('navToggle').addEventListener('click', function () {
+            const links = document.getElementById('navLinks');
+            const isOpen = links.classList.toggle('open');
+            this.classList.toggle('active', isOpen);
+            this.setAttribute('aria-expanded', isOpen);
+        });
+
+        document.querySelectorAll('#navLinks a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.getElementById('navLinks').classList.remove('open');
+                document.getElementById('navToggle').classList.remove('active');
+                document.getElementById('navToggle').setAttribute('aria-expanded', 'false');
+            });
+        });
+
+        // Accordion: only one post open at a time
+        document.querySelectorAll('.post-toggle').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const item = btn.closest('.post-item');
+                const isOpen = item.classList.contains('open');
+
+                document.querySelectorAll('.post-item.open').forEach(openItem => {
+                    if (openItem !== item) {
+                        openItem.classList.remove('open');
+                        openItem.querySelector('.post-toggle').setAttribute('aria-expanded', 'false');
+                    }
+                });
+
+                item.classList.toggle('open', !isOpen);
+                btn.setAttribute('aria-expanded', String(!isOpen));
+            });
+        });
+
+        // Scroll-reveal: fade + slide up each .reveal element as it enters the viewport
+        const revealEls = document.querySelectorAll('.reveal');
+        if ('IntersectionObserver' in window) {
+            const revealObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('in-view');
+                        revealObserver.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1 });
+            revealEls.forEach(el => revealObserver.observe(el));
+        } else {
+            revealEls.forEach(el => el.classList.add('in-view'));
+        }
+    </script>
+</body>
+</html>
