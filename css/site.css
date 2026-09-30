@@ -1243,16 +1243,13 @@ footer {
     transition: max-height 0.4s ease;
 }
 
-.post-item.open .post-body {
-    max-height: 900px;
-}
 
 .post-body-inner {
     padding: 0 24px 32px 134px;
     color: rgba(36,9,47,0.72);
     font-size: 0.98rem;
     line-height: 1.7;
-    max-width: 700px;
+    /* max-width: 700px;*/
 }
 
 .post-body-inner p {
@@ -1274,9 +1271,9 @@ footer {
 
 /* ===== NEWS PHOTOS ===== */
 .post-photo {
-    width: 100%;
-    max-width: 700px;
-    aspect-ratio: 16 / 9;
+    width: 50%;
+   /* max-width: 700px;
+    aspect-ratio: 16 / 9; */
     object-fit: cover;
     border-radius: 14px;
     margin-bottom: 20px;

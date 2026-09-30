@@ -51,21 +51,26 @@
                 <div class="post-list reveal">
 
                     <div class="post-item">
-                        <button class="post-toggle" aria-expanded="false" aria-controls="post-1-body">
+                        <button class="post-toggle" aria-expanded="false" aria-controls="post-forum-sessions-body">
                             <div class="post-toggle-left">
-                                <span class="post-date">SEP&nbsp;22</span>
-                                <span class="post-group">Social Media</span>
+                                <span class="post-date">SEP&nbsp;30</span>
+                                <span class="post-group">Workshops</span>
                             </div>
                             <div class="post-toggle-main">
-                                <h3 class="post-title">University outreach wraps up: 40+ academic offices reached</h3>
-                                <p class="post-excerpt">The first outreach push is complete, with confirmations coming in from departments across Athens, Thessaloniki, and Patras.</p>
+                                <h3 class="post-title">Four forum sessions to catch this week: from idea to career</h3>
+                                <p class="post-excerpt">From turning a startup idea into reality to building the communication skills that launch a career - here's what's coming to InnovAthens between October 1st and 3rd.</p>
                             </div>
                             <span class="post-chevron" aria-hidden="true">&rsaquo;</span>
                         </button>
-                        <div class="post-body" id="post-1-body">
+                        <div class="post-body" id="post-forum-sessions-body">
                             <div class="post-body-inner">
-                                <img class="post-photo" src="images/post-1.svg" alt="" />
-                                <p>Over the past six weeks, the Social Media Team contacted more than 40 academic offices and student unions across Greece to spread the word about big Volunteers and the BioInnovation Greece Forum 2026. Response has been strong, with several universities already offering to share the volunteer sign-up form directly with their biology, bioinformatics, and biotech student mailing lists.</p><p>Alongside outreach, the team finalized the content calendar running from now through the forum's opening on September 30th &mdash; expect a mix of speaker spotlights, behind-the-scenes prep content, and countdown posts across Instagram and TikTok.</p><p>If your department hasn't heard from us yet, reach out through the Join Us form and we'll make sure you're looped in.</p>
+                                <img class="post-photo" src="images/news/workshops.jpeg" alt="" />
+                                <p>Four sessions are landing at InnovAthens over the next few days, covering everything from taking a research idea to a real business, to finding your voice in front of a room. Here's the full line-up.</p>
+                                <p><strong>Enter&ndash;Grow&ndash;Go: From Research to Business</strong> &mdash; October 1, 15:00&ndash;15:20. Have a business or startup idea but don't know where to start? This practical session covers how to turn an idea into a real project, what accelerators are actually looking for, and how to make an application stand out. Speaker: Elena Stefanatou (egg, Eurobank). Guests: Evangelia Konstantinos Karali (CardioArm AI) and Periklis Spiliopoulos (OmniDerma).</p>
+                                <p><strong>Accelerator Stories: From Idea to Startup</strong> &mdash; October 3, 10:25&ndash;11:00. A panel with founders at different stages of their journey, sharing what it's really like to go through an accelerator programme &mdash; the challenges, the lessons, and the opportunities that shaped their path. Speakers: George Loudos (CVO, BIOEMTECH), Alexandra Sachinidi (Co-Founder &amp; CPO, DiagnAll), Dimitris Lempesis (Co-Founder, Mediva-RX), and Maria Dima (Co-Founder, KERBEROS).</p>
+                                <p><strong>How to Launch Your Biotech Career!</strong> &mdash; October 3, 12:25&ndash;13:10. A practical Q&amp;A on presenting yourself with confidence, communicating your strengths, and standing out when taking your first steps in the biotech industry. Speaker: Christina Christodoulou, Founder of Speakout Boutique Communication Agency. Moderator: Efthimia Lamari, MSc. Have a question for the panel? You can <a href="https://docs.google.com/forms/d/e/1FAIpQLSdyRggfcC4lEAuRsFVbVh___mrCQTpAUfxQm8OBKYdcY9T-ag/viewform?usp=header" target="_blank">submit it in advance</a>, and <a href="https://docs.google.com/forms/d/e/1FAIpQLSeoDV-d0les3AxJaWy6V0fTjcGI4aHQiJ_-pP_jZvGGDHAvOQ/viewform?usp=header" target="_blank">register here</a>.</p>
+                                <p><strong>Science Communication: From Research to Society</strong> &mdash; also at InnovAthens. A panel exploring science communication as an alternative career path, a valuable skill for scientists, and a bridge between science and society. Speakers: Julie Kyriazi (Founder, SciCo), Menelaos Sotiriou (Science Writer &amp; Communicator, ScienceView), Ioanna Zafeiratou &amp; Athanasia Stefanaki (Coordinators, DNA Voyagers), and Vasileios Gouzouasis (Founder, PharmaBusters).</p>
+                                <p>Follow <a href="https://www.instagram.com/bioinnovation_greece?stkn=Z2pxbzRjcW4wemtu&utm_source=qr" target="_blank">@bioinnovation_greece</a> for exact times and any last-minute room changes.</p>
                             </div>
                         </div>
                     </div>
@@ -118,21 +123,24 @@
             });
         });
 
-        // Accordion: only one post open at a time
+        // Accordion: only one post open at a time, height set to each post's actual content size
         document.querySelectorAll('.post-toggle').forEach(btn => {
             btn.addEventListener('click', () => {
                 const item = btn.closest('.post-item');
+                const body = item.querySelector('.post-body');
                 const isOpen = item.classList.contains('open');
 
                 document.querySelectorAll('.post-item.open').forEach(openItem => {
                     if (openItem !== item) {
                         openItem.classList.remove('open');
                         openItem.querySelector('.post-toggle').setAttribute('aria-expanded', 'false');
+                        openItem.querySelector('.post-body').style.maxHeight = null;
                     }
                 });
 
                 item.classList.toggle('open', !isOpen);
                 btn.setAttribute('aria-expanded', String(!isOpen));
+                body.style.maxHeight = !isOpen ? body.scrollHeight + 'px' : null;
             });
         });
 
